@@ -37,14 +37,14 @@ public class Product {
     private Date dateCreated;
 
     @Column(name = "description", nullable = false, length = 8096)
-    @Length(max=8096, message = ">8000")
+    @Length(max = 8096, message = ">8000")
     private String description;
 
     @OneToOne
     private User owner;
 
     @OneToOne
-    private User boyer;
+    private User buyer;
 
     @Column(name = "available")
     private boolean available;
@@ -56,7 +56,7 @@ public class Product {
         this.name = name;
         this.price = price;
         this.description = description;
-        this.redemptionPrice =redemptionPrice;
+        this.redemptionPrice = redemptionPrice;
     }
 
     public Long getId() {
@@ -103,12 +103,12 @@ public class Product {
         this.owner = owner;
     }
 
-    public User getBoyer() {
-        return boyer;
+    public User getBuyer() {
+        return buyer;
     }
 
-    public void setBoyer(User boyer) {
-        this.boyer = boyer;
+    public void setBuyer(User buyer) {
+        this.buyer = buyer;
     }
 
     public void setDescription(String description) {

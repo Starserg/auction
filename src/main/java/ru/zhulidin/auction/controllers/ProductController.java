@@ -1,11 +1,9 @@
 package ru.zhulidin.auction.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -58,27 +56,9 @@ public class ProductController {
          return "redirect:/product/" + productService.findByName(product.getName()).getId();
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @PostMapping("editproduct/{productCurrent}")
-    public String editProduct(
-            @PathVariable Product productCurrent,
-            @RequestParam("file") MultipartFile file,
-            @RequestParam String categoryTemp,
-            @Valid Product product,
-            BindingResult bindingResult,
-            Model model
-
-    ) throws IOException {
-        if (bindingResult.hasErrors()){
-            Map<String, String> errorsMap = ControllerUtils.getErrors(bindingResult);
-            model.mergeAttributes(errorsMap);
-            System.out.println("errors");
-
-            model.addAttribute("product", product);
-            return "redirect:/product/" + productCurrent.getId();
-        } else {
-            productService.updateProduct(productCurrent, product.getName(), product.getPrice(), product.getDescription(), product.getRedemptionPrice(), file, product.isAvailable());
-        }
-        return "redirect:/product/" + productCurrent.getId();
+    @GetMapping("boughtproducts")
+    public String getBoughtProduct(@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("products", productService.findByBuyer(user));
+        return "boughtproducts";
     }
 }

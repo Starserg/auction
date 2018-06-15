@@ -35,7 +35,6 @@ public class ProductService {
         } else {
             product.setImageUrl(generalPicture);
         }
-        Date date = new Date();
         product.setDateCreated(new Date(Calendar.getInstance().getTimeInMillis()));
         product.setAvailable(true);
         product.setOwner(user);
@@ -44,6 +43,12 @@ public class ProductService {
 
     public Product findByName(String name) {
         return productRepository.findByName(name);
+    }
+    public List<Product> findByOwner(User user) {
+        return productRepository.findByOwner(user);
+    }
+    public List<Product> findByBuyer(User user) {
+        return productRepository.findByOwner(user);
     }
 
 

@@ -2,10 +2,7 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
-
-
-        <#include "parts/adminnav.ftl">
-
+    <#include "parts/adminnav.ftl">
 <!--Сontent-->
 <div class="container-fluid" id="content">
     <div class="row justify-content-center">

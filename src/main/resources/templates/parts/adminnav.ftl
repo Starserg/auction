@@ -6,6 +6,9 @@
                 <li class="nav-item">
                     <a class="nav-link Btn Bnt-primary blue" href="/product/addproduct">Добавить товар</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link Btn Bnt-primary blue" href="/product/boughtproducts">Купленные товары</a>
+                </li>
             </ul>
         </div>
     </nav>

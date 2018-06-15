@@ -3,6 +3,7 @@ package ru.zhulidin.auction.repositories;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import ru.zhulidin.auction.entities.Product;
+import ru.zhulidin.auction.entities.User;
 
 import java.util.List;
 
@@ -15,4 +16,9 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     List<Product> findAllByNameLikeAndAvailable(String name, boolean available);
 
     List<Product> findAllByAvailable(boolean available);
+
+
+
+    List<Product> findByOwner(User user);
+    List<Product> findByBuyer(User user);
 }
