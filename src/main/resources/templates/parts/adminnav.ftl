@@ -1,6 +1,6 @@
-<div class="container bg-light text-light"  id="navigator">
+<div class="container bg-dark text-light"  id="navigator">
     <nav class="navbar navbar-expand-md navbar ">
-        <a href="/user/profile" class="navbar-brand">Admin instruments</a>
+        <a href="/user/profile" class="navbar-brand">Super Profile</a>
         <div class="">
             <ul class="navbar-nav">
                 <li class="nav-item">

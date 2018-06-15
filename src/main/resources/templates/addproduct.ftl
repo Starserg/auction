@@ -45,7 +45,7 @@
                                 <div class="form-group mb-3">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="productPrise">Цена</label>
+                                            <label for="productPrise">Нальная цена</label>
                                             <input max="9999999" min="0" name="price" type="number"
                                                    value="<#if product??>${(product.price?if_exists)}</#if>"
                                                    class="${(priceError??)?string('is-invalid', '')} form-control form-control-lg"
@@ -58,7 +58,7 @@
                                             </#if>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="productPrise">Гарантия</label>
+                                            <label for="productPrise">Цена выкупа</label>
                                             <input max="9999999" min="0" name="redemptionPrice" type="number"
                                                    class="form-control form-control-lg"
                                                    placeholder="">
@@ -77,8 +77,6 @@
                                             </div>
                                      </#if>
                                 </div>
-
-
                                 <div class="row">
                                     <div class="offset-5 col-md-4">
                                         <input type="hidden" name="_csrf" value="${_csrf.token}">

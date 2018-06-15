@@ -2,6 +2,7 @@ package ru.zhulidin.auction.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -9,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.zhulidin.auction.entities.Product;
+import ru.zhulidin.auction.entities.User;
 import ru.zhulidin.auction.helpers.ErrorHelpers.ControllerUtils;
 import ru.zhulidin.auction.services.ProductService;
 
@@ -37,6 +39,7 @@ public class ProductController {
 
     @PostMapping("addproduct")
     public String addProduct(
+            @AuthenticationPrincipal User user,
             @RequestParam("file") MultipartFile file,
             @Valid Product product,
             BindingResult bindingResult,
@@ -49,7 +52,7 @@ public class ProductController {
             System.out.println("errors");
             return "addproduct";
         } else {
-           productService.add(product.getName(), product.getPrice(), product.getRedemptionPrice(), product.getDescription(), file);
+           productService.add(user, product.getName(), product.getPrice(), product.getRedemptionPrice(), product.getDescription(), file);
         }
 
          return "redirect:/product/" + productService.findByName(product.getName()).getId();

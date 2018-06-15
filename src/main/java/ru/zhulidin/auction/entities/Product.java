@@ -40,6 +40,11 @@ public class Product {
     @Length(max=8096, message = ">8000")
     private String description;
 
+    @OneToOne
+    private User owner;
+
+    @OneToOne
+    private User boyer;
 
     @Column(name = "available")
     private boolean available;
@@ -88,6 +93,22 @@ public class Product {
 
     public String getDescription() {
         return description;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    public User getBoyer() {
+        return boyer;
+    }
+
+    public void setBoyer(User boyer) {
+        this.boyer = boyer;
     }
 
     public void setDescription(String description) {

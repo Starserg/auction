@@ -10,7 +10,7 @@
                 <div class="col-12 mb-3">
                         <#list products as product>
                             <#if ((product?counter-1)%4)==0>
-                                <div class="card-deck">
+                                <div class="card-columns">
                             </#if>
                             <div class="card mb-4">
                                 <img class="card-img-top" src="/img/${product.imageUrl?if_exists}"

@@ -6,10 +6,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import ru.zhulidin.auction.entities.Product;
+import ru.zhulidin.auction.entities.User;
 import ru.zhulidin.auction.helpers.fileHelpers.FileHelper;
 import ru.zhulidin.auction.repositories.ProductRepository;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -23,7 +26,7 @@ public class ProductService {
     @Value("${generalPicture}")
     private String generalPicture;
 
-    public void add(String title, Integer price, Integer redemptionPrice, String description, MultipartFile file)
+    public void add(User user, String title, Integer price, Integer redemptionPrice, String description, MultipartFile file)
             throws IOException {
         Product product = new Product(title, price, description, redemptionPrice);
         String path = FileHelper.loadFile(file, uploadPath);
@@ -32,7 +35,10 @@ public class ProductService {
         } else {
             product.setImageUrl(generalPicture);
         }
+        Date date = new Date();
+        product.setDateCreated(new Date(Calendar.getInstance().getTimeInMillis()));
         product.setAvailable(true);
+        product.setOwner(user);
         productRepository.save(product);
     }
 
