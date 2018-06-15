@@ -4,16 +4,7 @@
         <div class="">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/product/addproduct">Добавить товар</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/user">Список пользователей</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/categories/diagram">Список категорий</a>
-                </li>
-                <li>
-                        <a class="nav-link" href="/news/addnews">Создать новую новость</a>
+                    <a class="nav-link Btn Bnt-primary blue" href="/product/addproduct">Добавить товар</a>
                 </li>
             </ul>
         </div>

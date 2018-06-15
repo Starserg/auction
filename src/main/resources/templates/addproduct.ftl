@@ -25,7 +25,7 @@
                                         <div class="col-md-12">
                                             <div class="input-group mr-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text">Назвавние</span>
+                                                    <span class="input-group-text">Название</span>
                                                 </div>
                                                 <input maxlength="50" name="name" type="text"
                                                        value="<#if product??>${product.name}</#if>"
@@ -59,7 +59,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label for="productPrise">Гарантия</label>
-                                            <input max="9999999" min="0" redemptionPrice" type="number"
+                                            <input max="9999999" min="0" name="redemptionPrice" type="number"
                                                    class="form-control form-control-lg"
                                                    placeholder="">
                                         </div>

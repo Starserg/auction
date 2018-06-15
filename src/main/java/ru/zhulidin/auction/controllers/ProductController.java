@@ -28,23 +28,22 @@ public class ProductController {
         return "product";
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
+
     @GetMapping("addproduct")
     public String getAddProduct(Model model) {
         return "addproduct";
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
+
     @PostMapping("addproduct")
     public String addProduct(
             @RequestParam("file") MultipartFile file,
-            @RequestParam String categoryTemp,
             @Valid Product product,
             BindingResult bindingResult,
             Model model
     ) throws IOException {
 
-        if (bindingResult.hasErrors() || StringUtils.isEmpty(categoryTemp)){
+        if (bindingResult.hasErrors()){
             Map<String, String> errorsMap = ControllerUtils.getErrors(bindingResult);
             model.mergeAttributes(errorsMap);
             System.out.println("errors");

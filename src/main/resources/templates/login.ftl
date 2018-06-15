@@ -23,7 +23,7 @@
                             <button type="submit" class="btn btn-primary btn-block">Войти</button>
                         </div>
                         <p class="text-center">Нет аккаунта? <a href="/registration">Регистрация</a></p>
-                        <p class="text-center">Забыли пароль? <a href="/requestresetpassword">Востановить</a></p>
+                        <p class="text-center">Забыли пароль? <a href="/requestresetpassword">Восстановить</a></p>
                     </form>
                 </article>
             </div>
